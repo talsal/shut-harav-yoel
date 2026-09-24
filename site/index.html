@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שו"ת לימוד כוונות למהדרין</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <h1>שו"ת לימוד כוונות למהדרין</h1>
+    <p class="subtitle">שאלות ותשובות בעניני כוונות התפילה על פי הרש"ש</p>
+    <p class="byline">מדברי הרב יואל חקון שליט"א · מתוך קבוצת הלימוד "לימוד כוונות למהדרין"</p>
+    <p class="stats-line">221 שאלות ותשובות · אוקטובר 2024 – ספטמבר 2026</p>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <button class="about-toggle" id="about-toggle" type="button" aria-expanded="false">
+      <span>פתח דבר — על הקובץ</span>
+      <span class="chevron" id="about-chevron">▾</span>
+    </button>
+    <div class="about-body" id="about-body">
+      <p>
+        לפניכם קובץ שאלות ותשובות שנאסף מתוך קבוצת הוואטסאפ "לימוד כוונות למהדרין", קבוצת לימוד בעניני כוונות
+        התפילה על פי כתבי האר"י ז"ל ובפרט כוונות הרש"ש. הקובץ מרכז את השאלות שנשאלו במהלך הקבוצה על ידי החברים,
+        יחד עם התשובות שנמסרו להן.
+      </p>
+      <div class="about-callout">
+        <p>
+          כל התשובות המובאות בקובץ זה הן דברי הרב יואל חקון שליט"א עצמו, כפי שנכתבו על ידו בקבוצה — או תשובות של
+          חברי הקבוצה שהרב אישר אותן במפורש. תוכן השאלות והתשובות מובא כלשונו מתוך השיחה, ללא כל תוספת, פרשנות,
+          השלמה או מידע חיצוני. במקומות שבהם נשאלה שאלה ולא נמצאה עליה תשובה מפורשת של הרב, או שרק חבר קבוצה
+          השיב מבלי שהרב אישר את דבריו — השאלה לא נכללה בקובץ זה.
+        </p>
+      </div>
+      <p>
+        הקובץ מסודר בארבעה חלקים: <strong>תפילת חול</strong> (לפי סדר התפילה — נטילת ידיים, פסוקי דזמרה, קריאת
+        שמע, עמידה, תחנון, קדיש וכו'), <strong>שבת וראש חודש</strong>, <strong>מועדי השנה</strong> (לפי סדר השנה
+        מראש השנה ועד תשעה באב), <strong>וכוונות כלליות בקבלה והלכה</strong> — נושאים שאינם משויכים לזמן תפילה
+        מסויים.
+      </p>
+      <p class="about-disclaimer">
+        נערך ורוכז באמצעות בינה מלאכותית (Claude) מתוך קובץ ייצוא של שיחת הוואטסאפ. ייתכנו טעויות בשיוך שאלה
+        לתשובה או בקטגוריזציה; מומלץ לבדוק כל פסק הלכה או קבלה מול המקור המקורי בקבוצה בכל מקרה של ספק.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <input id="search-input" type="text" placeholder="חיפוש בשאלות ובתשובות..." autocomplete="off">
+    <select id="section-filter">
+      <option value="">כל החלקים</option>
+    </select>
+    <select id="category-filter">
+      <option value="">כל הקטגוריות</option>
+    </select>
+    <select id="answerer-filter">
+      <option value="">כל המשיבים</option>
+    </select>
+    <label class="checkbox-label">
+      <input type="checkbox" id="confirmed-filter">
+      <span>מאושר ע"י הרב בלבד</span>
+    </label>
+    <button id="clear-filters" type="button">נקה סינון</button>
+  </div>
+  <div class="results-count" id="results-count"></div>
+</div>
+
+<div class="layout">
+  <nav class="toc" id="toc">
+    <div class="toc-title">תוכן עניינים</div>
+    <div id="toc-list"></div>
+  </nav>
+
+  <main id="content"></main>
+</div>
+
+<button id="back-to-top" title="חזרה למעלה">↑</button>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
