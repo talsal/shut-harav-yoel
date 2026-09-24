@@ -66,7 +66,6 @@
   var categoryFilter = document.getElementById("category-filter");
   var answererFilter = document.getElementById("answerer-filter");
   var searchInput = document.getElementById("search-input");
-  var confirmedFilter = document.getElementById("confirmed-filter");
   var clearBtn = document.getElementById("clear-filters");
   var resultsCount = document.getElementById("results-count");
   var contentEl = document.getElementById("content");
@@ -131,11 +130,10 @@
   }
 
   // ---------- filtering ----------
-  function matchesFilters(item, query, sectionVal, categoryVal, answererVal, confirmedOnly) {
+  function matchesFilters(item, query, sectionVal, categoryVal, answererVal) {
     if (sectionVal && item.section !== sectionVal) return false;
     if (categoryVal && item.category !== categoryVal) return false;
     if (answererVal && item.answerer !== answererVal) return false;
-    if (confirmedOnly && !item.confirmed_by_rav) return false;
     if (query) {
       var haystack = (item.short_topic + " " + item.question + " " + item.answer + " " +
         item.asker + " " + item.answerer).toLowerCase();
@@ -165,9 +163,6 @@
       '<span class="badge">שואל: ' + escapeHtml(item.asker) + '</span>',
       '<span class="badge">משיב: ' + escapeHtml(item.answerer) + '</span>'
     ];
-    if (item.confirmed_by_rav) {
-      badges.push('<span class="badge confirmed">✓ מאושר ע"י הרב</span>');
-    }
     metaEl.innerHTML = badges.join("");
     textWrap.appendChild(metaEl);
 
@@ -200,10 +195,9 @@
     var sectionVal = sectionFilter.value;
     var categoryVal = categoryFilter.value;
     var answererVal = answererFilter.value;
-    var confirmedOnly = confirmedFilter.checked;
 
     var filtered = DATA.filter(function (item) {
-      return matchesFilters(item, query, sectionVal, categoryVal, answererVal, confirmedOnly);
+      return matchesFilters(item, query, sectionVal, categoryVal, answererVal);
     });
 
     contentEl.innerHTML = "";
@@ -268,7 +262,6 @@
   });
   categoryFilter.addEventListener("change", render);
   answererFilter.addEventListener("change", render);
-  confirmedFilter.addEventListener("change", render);
   searchInput.addEventListener("input", debounce(render, 200));
 
   clearBtn.addEventListener("click", function () {
@@ -276,7 +269,6 @@
     sectionFilter.value = "";
     refreshCategoryOptions();
     answererFilter.value = "";
-    confirmedFilter.checked = false;
     render();
   });
 
