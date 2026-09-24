@@ -129,14 +129,6 @@ html, body {
   font-size: 0.87rem;
   color: var(--text-muted);
 }
-.about-disclaimer {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  border-top: 1px solid var(--border);
-  padding-top: 10px;
-  margin-bottom: 0 !important;
-}
-
 .toolbar {
   position: sticky;
   top: 0;
