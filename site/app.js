@@ -287,6 +287,13 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
+  // ---------- last update ----------
+  var statsLine = document.getElementById("stats-line");
+  if (statsLine && DATA.length) {
+    var latest = DATA.reduce(function (a, b) { return b.date > a.date ? b : a; });
+    statsLine.textContent = DATA.length + " שאלות ותשובות · מעודכן עד " + latest.date_display;
+  }
+
   // ---------- init ----------
   buildTOC();
   render();
